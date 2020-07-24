@@ -26,7 +26,7 @@ public class UserDaoJDBCImpl implements UserDao {
                 "PRIMARY KEY(id) )";
 
         try {
-            Statement statement =  myConnection.createStatement();
+            Statement statement = myConnection.createStatement();
             statement.execute(queryCreateTable);
             System.out.println("Создана таблица " + tableName);
             statement.close();
@@ -37,9 +37,9 @@ public class UserDaoJDBCImpl implements UserDao {
     }
 
     public void dropUsersTable() {
-       String deleteQuery = "DROP TABLE IF EXISTS " + tableName;
+        String deleteQuery = "DROP TABLE IF EXISTS " + tableName;
         try {
-            Statement statement =  myConnection.createStatement();
+            Statement statement = myConnection.createStatement();
             statement.execute(deleteQuery);
             System.out.println("Удалена таблица " + tableName);
             statement.close();
@@ -51,7 +51,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
     public void saveUser(String aName, String aLastName, byte aAge) {
 
-        String addUserQuery = "INSERT INTO " +  tableName + "(name, lastname, age) values (?,?,?)";
+        String addUserQuery = "INSERT INTO " + tableName + "(name, lastname, age) values (?,?,?)";
 
         try {
             PreparedStatement preparedStatement = myConnection.prepareStatement(addUserQuery);
@@ -69,7 +69,7 @@ public class UserDaoJDBCImpl implements UserDao {
     }
 
     public void removeUserById(long id) {
-       String removeQuery = "DELETE FROM " + tableName +
+        String removeQuery = "DELETE FROM " + tableName +
                 " WHERE id = " + id;
         try {
             Statement statement = myConnection.createStatement();
@@ -86,7 +86,7 @@ public class UserDaoJDBCImpl implements UserDao {
         String query = "SELECT * FROM " + tableName;
         List<User> usersList = new ArrayList<>();
         try {
-            Statement statement =  myConnection.createStatement();
+            Statement statement = myConnection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 User user = new User();
@@ -109,7 +109,7 @@ public class UserDaoJDBCImpl implements UserDao {
     public void cleanUsersTable() {
         String cleanQuery = "TRUNCATE TABLE " + tableName;
         try {
-            Statement statement =  myConnection.createStatement();
+            Statement statement = myConnection.createStatement();
             statement.execute(cleanQuery);
             System.out.println("Очищена таблица " + tableName);
             statement.close();

@@ -14,7 +14,6 @@ public class Util {
 
         try {
             connection = DriverManager.getConnection(HOST, USER, PASSWORD);
-         //   System.out.println("Connection is successful!");
 //            connection.close();
         } catch (SQLException ex) {
             System.out.println("Connection failed...");
@@ -25,5 +24,4 @@ public class Util {
     public Connection getConnection() {
         return connection;
     }
-
 }
