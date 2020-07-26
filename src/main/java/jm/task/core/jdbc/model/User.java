@@ -1,21 +1,26 @@
 package jm.task.core.jdbc.model;
 
 import jm.task.core.jdbc.dao.UserDao;
+import jm.task.core.jdbc.dao.UserDaoHibernateImpl;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.List;
 
-@Table
-public class User implements UserDao {
+import javax.persistence.*;
+
+@Entity
+@Table (name = "users")
+public class User  { //extends UserDaoHibernateImpl
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
     private String name;
 
-    @Column
+    @Column(name = "lastname")
     private String lastName;
 
     @Column
@@ -71,33 +76,33 @@ public class User implements UserDao {
                 " age: " + age + "}";
     }
 
-    @Override
-    public void createUsersTable() {
-
-    }
-
-    @Override
-    public void dropUsersTable() {
-
-    }
-
-    @Override
-    public void saveUser(String name, String lastName, byte age) {
-
-    }
-
-    @Override
-    public void removeUserById(long id) {
-
-    }
-
-    @Override
-    public List<User> getAllUsers() {
-        return null;
-    }
-
-    @Override
-    public void cleanUsersTable() {
-
-    }
+//    @Override
+//    public void createUsersTable() {
+//
+//    }
+//
+//    @Override
+//    public void dropUsersTable() {
+//
+//    }
+//
+//    @Override
+//    public void saveUser(String name, String lastName, byte age) {
+//
+//    }
+//
+//    @Override
+//    public void removeUserById(long id) {
+//
+//    }
+//
+//    @Override
+//    public List<User> getAllUsers() {
+//        return null;
+//    }
+//
+//    @Override
+//    public void cleanUsersTable() {
+//
+//    }
 }
