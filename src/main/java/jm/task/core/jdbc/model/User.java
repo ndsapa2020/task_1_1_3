@@ -1,11 +1,14 @@
 package jm.task.core.jdbc.model;
 
+import jm.task.core.jdbc.dao.UserDao;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.List;
 
 @Table
-public class User {
+public class User implements UserDao {
     @Id
     private Long id;
 
@@ -66,5 +69,35 @@ public class User {
                 " username: " + name +
                 " lastname: " + lastName +
                 " age: " + age + "}";
+    }
+
+    @Override
+    public void createUsersTable() {
+
+    }
+
+    @Override
+    public void dropUsersTable() {
+
+    }
+
+    @Override
+    public void saveUser(String name, String lastName, byte age) {
+
+    }
+
+    @Override
+    public void removeUserById(long id) {
+
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        return null;
+    }
+
+    @Override
+    public void cleanUsersTable() {
+
     }
 }
