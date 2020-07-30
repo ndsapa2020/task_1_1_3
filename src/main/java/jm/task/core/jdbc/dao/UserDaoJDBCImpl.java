@@ -9,12 +9,11 @@ import java.util.List;
 
 public class UserDaoJDBCImpl implements UserDao {
 
-    private final Connection myConnection;
-    private final String tableName = "users2";
+    private static Connection myConnection;
+    private final String tableName = "users";
 
     public UserDaoJDBCImpl() {
-        Util myConnectUtil = new Util();
-        myConnection = myConnectUtil.getConnection();
+        myConnection = Util.getConnection();
     }
 
     public void createUsersTable() {

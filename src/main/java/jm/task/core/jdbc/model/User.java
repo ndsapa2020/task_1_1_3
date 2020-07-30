@@ -6,16 +6,15 @@ import jm.task.core.jdbc.dao.UserDaoHibernateImpl;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.List;
 
 import javax.persistence.*;
 
 @Entity
-@Table (name = "users")
-public class User  { //extends UserDaoHibernateImpl
+@Table (name = "users2")
+public class User { //extends UserDaoHibernateImpl
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     @Column
     private String name;
@@ -24,10 +23,9 @@ public class User  { //extends UserDaoHibernateImpl
     private String lastName;
 
     @Column
-    private Byte age;
+    private byte age;
 
     public User() {
-
     }
 
     public User(String name, String lastName, Byte age) {
@@ -76,33 +74,4 @@ public class User  { //extends UserDaoHibernateImpl
                 " age: " + age + "}";
     }
 
-//    @Override
-//    public void createUsersTable() {
-//
-//    }
-//
-//    @Override
-//    public void dropUsersTable() {
-//
-//    }
-//
-//    @Override
-//    public void saveUser(String name, String lastName, byte age) {
-//
-//    }
-//
-//    @Override
-//    public void removeUserById(long id) {
-//
-//    }
-//
-//    @Override
-//    public List<User> getAllUsers() {
-//        return null;
-//    }
-//
-//    @Override
-//    public void cleanUsersTable() {
-//
-//    }
 }
